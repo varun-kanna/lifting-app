@@ -8,26 +8,14 @@ app = FastAPI()
 # db = client.mydatabase
 
 
-# class Item(BaseModel):
-#     name: str
-#     description: str
-
-
 @app.get("/")
 def main():
     return "Hello"
 
 
-# @app.post("/items/")
-# async def create_item(item: Item):
-#     db.items.insert_one(item.dict())
-#     return item
-
-
-@app.get("/items")
-async def read_items():
-    # items = list(db.items.find())
-    return {"name": "Varun"}
+@app.get("/workouts")
+async def read_workouts():
+    return {"w1": "Chest and Back", "w2": "Arms"}
 
 
 if __name__ == "__main__":

@@ -1,25 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Workouts from './routes/Workouts/Workouts';
+import Home from './routes/Home/Home';
+import {
+	SignedIn,
+	SignedOut,
+	SignInButton,
+	UserButton,
+} from '@clerk/clerk-react';
+
 import './App.css';
 
 function App() {
-	const [name, setName] = useState('');
-
-	useEffect(() => {
-		axios
-			.get('/items')
-			.then((res) => {
-				setName(res.data.name);
-			})
-			.catch((err) => console.log(err));
-	}, []);
-
 	return (
-		<div className='App'>
+		<>
 			<header>
-				<h1>Hello, {name}</h1>
+				<SignedOut>
+					<SignInButton />
+				</SignedOut>
+				<SignedIn>
+					<UserButton />
+				</SignedIn>
 			</header>
-		</div>
+			<Router>
+				<div>
+					<Routes>
+						<Route exact path='/' element={<Home />}></Route>
+						<Route exact path='/workouts' element={<Workouts />}></Route>
+					</Routes>
+				</div>
+			</Router>
+		</>
 	);
 }
 
