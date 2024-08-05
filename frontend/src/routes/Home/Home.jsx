@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
-import {
-	SignedIn,
-	SignedOut,
-	SignInButton,
-	UserButton,
-} from '@clerk/clerk-react';
-
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
-	const [auth, setAuth] = useState(true);
+	const [auth, setAuth] = useState(false);
 
 	return (
 		<div className='home'>
-			{/* <header>
-				<SignedOut>
-					<SignInButton />
-				</SignedOut>
-				<SignedIn>
-					<UserButton />
-				</SignedIn>
-			</header> */}
-			{/*  If not authenticated, utilize CLerk for signup/login */}
+			<nav>
+				<Link to='/'>Home</Link>
+				<br />
+				<Link to='/workouts'>Workouts</Link>
+			</nav>
+			{/*  If not authenticated, authenticate*/}
 			{!auth && (
 				<div>
 					<h1>Welcome!</h1>

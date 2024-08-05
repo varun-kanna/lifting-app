@@ -2,31 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Workouts from './routes/Workouts/Workouts';
 import Home from './routes/Home/Home';
-import {
-	SignedIn,
-	SignedOut,
-	SignInButton,
-	UserButton,
-} from '@clerk/clerk-react';
+import EmptyWorkout from './routes/EmptyWorkout/EmptyWorkout';
+import NewRoutine from './routes/NewRoutine/NewRoutine';
 
 import './App.css';
 
 function App() {
 	return (
 		<>
-			<header>
-				<SignedOut>
-					<SignInButton />
-				</SignedOut>
-				<SignedIn>
-					<UserButton />
-				</SignedIn>
-			</header>
 			<Router>
 				<div>
 					<Routes>
-						<Route exact path='/' element={<Home />}></Route>
-						<Route exact path='/workouts' element={<Workouts />}></Route>
+						<Route path='/' element={<Home />}></Route>
+						<Route path='/workouts' element={<Workouts />}></Route>
+						<Route path='/empty-workout' element={<EmptyWorkout />}></Route>
+						<Route path='/new-routine' element={<NewRoutine />}></Route>
 					</Routes>
 				</div>
 			</Router>
