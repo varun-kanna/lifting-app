@@ -8,9 +8,10 @@ function Workouts() {
 
 	useEffect(() => {
 		axios
-			.get('http://127.0.0.1:8000/workouts')
+			.get('http://localhost:8080/workouts')
 			.then((res) => {
-				setName(res.data.w1);
+				setName(res.data.workouts[0]);
+				// console.log(res.data.workouts);
 			})
 			.catch((err) => console.log(err));
 	}, []);

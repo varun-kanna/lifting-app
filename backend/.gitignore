@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+
+# Environment files
+.env
+
+# Python virtual environments
+env/
+ENV/
+env.bak/
+ENV.bak/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build directories
+/dist/
+/build/
+/out/
+
+# React app production build
+/frontend/build/
+
+# IDE specific files
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+/Rewards
+Rewards.postman_collection.json
