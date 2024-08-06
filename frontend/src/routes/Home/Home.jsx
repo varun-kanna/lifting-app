@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import { SignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 function Home() {
-	const [auth, setAuth] = useState(false);
-
 	return (
 		<div className='home'>
 			<nav>
@@ -12,15 +12,17 @@ function Home() {
 				<br />
 				<Link to='/workouts'>Workouts</Link>
 			</nav>
-			{/*  If not authenticated, authenticate*/}
-			{!auth && (
+
+			<SignedOut>
 				<div>
-					<h1>Welcome!</h1>
-					<h2>Login/signup</h2>
+					<h1>Login to get started using lifting-app</h1>
+					<div className='SignIn'>
+						<SignIn path='/' />
+					</div>
 				</div>
-			)}
-			{/* If authenticated, show homepage */}
-			{auth && (
+			</SignedOut>
+
+			<SignedIn>
 				<>
 					<h1>Home</h1>
 					<ul className='home'>
@@ -44,7 +46,7 @@ function Home() {
 						</li>
 					</ul>
 				</>
-			)}
+			</SignedIn>
 		</div>
 	);
 }

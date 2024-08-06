@@ -16,3 +16,9 @@
 	margin-left: 20px; /* Indent nested lists */
 	text-align: center; /* Align nested list items to the left */
 }
+
+.SignIn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
